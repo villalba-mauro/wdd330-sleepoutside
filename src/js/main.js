@@ -1,6 +1,7 @@
-import ProductData from "./ProductData.mjs";
-import ProductList from "./ProdductList.mjs";
 
-const productData = new ProductData();
+import ProductList from "./ProductList.mjs";
 
-const productList = new ProductList();
+const listing = new ProductList("Tents", dataSource, element);
+
+listing.init();
+
