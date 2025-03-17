@@ -233,6 +233,45 @@ button {
   }
 }
 
+/* Product discount styling */
+.product-image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.discount-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #e63946;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.product-price {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.product-card__original-price {
+  text-decoration: line-through;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.product-card__price.discounted {
+  color: #e63946;
+  font-weight: bold;
+}
+
+/* End of product discount styling */
+
 footer {
   font-size: var(--small-font);
   padding: 1em;
