@@ -1,7 +1,10 @@
 
-import ProductList from "./ProductList.mjs";
+// import ProductList from "./ProductList.mjs";
 
-const listing = new ProductList("Tents", dataSource, element);
+// const listing = new ProductList("Tents", dataSource, element);
 
-listing.init();
+// listing.init();
 
+import { loadHeaderFooter } from "./utils.mjs";
+
+loadHeaderFooter();

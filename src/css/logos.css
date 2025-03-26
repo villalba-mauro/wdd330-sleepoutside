@@ -1,0 +1,15 @@
+.category-list{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  .category-card{
+    list-style: none;
+  }
+  .category-card img{
+    max-width: 100%;
+    width: 50%;
+  }
+  .category-card a {
+    text-decoration: none;
+  }
