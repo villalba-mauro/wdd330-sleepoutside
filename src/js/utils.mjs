@@ -118,18 +118,49 @@ export async function loadTemplate(path) {
   return template;
 }
 // Añade esto a utils.mjs
+// export async function loadHeaderFooter() {
+//   // Determinar la ruta base según la ubicación actual
+//   const path = window.location.pathname;
+//   let pathPrefix = './';
+  
+//   // Ajustar la ruta según donde nos encontremos
+//   if (path.includes('/product_pages/') || path.includes('/cart/') || path.includes('/product_listing/')) {
+//     pathPrefix = '../';
+//   }
+  
+//   try {
+//     console.log("Loading templates from:", `${pathPrefix}partials/header.html`);
+//     const headerTemplate = await loadTemplate(`${pathPrefix}partials/header.html`);
+//     const footerTemplate = await loadTemplate(`${pathPrefix}partials/footer.html`);
+    
+//     const headerElement = document.getElementById("main-header");
+//     const footerElement = document.getElementById("main-footer");
+    
+//     if (headerElement) {
+//       console.log("Rendering header");
+//       renderWithTemplate(headerTemplate, headerElement);
+//       // Actualizar el contador del carrito después de cargar el header
+//       updateCartCount();
+//     }
+    
+//     if (footerElement) {
+//       console.log("Rendering footer");
+//       renderWithTemplate(footerTemplate, footerElement);
+//     }
+//   } catch (error) {
+//     console.error('Error loading header/footer:', error);
+//   }
+// }
+
 export async function loadHeaderFooter() {
-  // Determinar la ruta base según la ubicación actual
   const path = window.location.pathname;
   let pathPrefix = './';
   
-  // Ajustar la ruta según donde nos encontremos
-  if (path.includes('/product_pages/') || path.includes('/cart/') || path.includes('/product_listing/')) {
+  if (path.includes('/product_pages/') || path.includes('/cart/') || path.includes('/checkout/') || path.includes('/product_listing/')) {
     pathPrefix = '../';
   }
   
   try {
-    console.log("Loading templates from:", `${pathPrefix}partials/header.html`);
     const headerTemplate = await loadTemplate(`${pathPrefix}partials/header.html`);
     const footerTemplate = await loadTemplate(`${pathPrefix}partials/footer.html`);
     
@@ -137,14 +168,11 @@ export async function loadHeaderFooter() {
     const footerElement = document.getElementById("main-footer");
     
     if (headerElement) {
-      console.log("Rendering header");
       renderWithTemplate(headerTemplate, headerElement);
-      // Actualizar el contador del carrito después de cargar el header
       updateCartCount();
     }
     
     if (footerElement) {
-      console.log("Rendering footer");
       renderWithTemplate(footerTemplate, footerElement);
     }
   } catch (error) {

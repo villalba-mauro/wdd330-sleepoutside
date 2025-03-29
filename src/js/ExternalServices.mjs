@@ -31,7 +31,7 @@ function convertToJson(res) {
 
 const baseURL = import.meta.env.VITE_SERVER_URL;
 
-export default class ProductData {
+export default class ExternalServices {
   constructor() {
     // this.category = category;
     // this.path = `../json/${this.category}.json`;
@@ -46,4 +46,25 @@ export default class ProductData {
     const data = await convertToJson(response);
     return data.Result;  
   }
+  // Añade este método a la clase ExternalServices
+async checkout(payload) {
+  try {
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    };
+    
+    // Realiza la solicitud POST al servidor
+    const response = await fetch(`${baseURL}checkout`, options);
+    const data = await convertToJson(response);
+    
+    return data;
+  } catch (error) {
+    console.error('Error durante el proceso de checkout:', error);
+    throw error;
+  }
+}
 }

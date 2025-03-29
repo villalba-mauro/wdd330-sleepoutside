@@ -52,6 +52,18 @@ function renderCartContents() {
   }
 }
 
+function calculateCartTotal() {
+  const cartItems = getLocalStorage("so-cart") || [];
+  const total = cartItems.reduce((sum, item) => sum + item.FinalPrice, 0);
+
+  const totalElement = document.getElementById("cart-total");
+  if (totalElement) {
+  totalElement.textContent = total.toFixed(2);
+  }
+}
+renderCartContents();
+calculateCartTotal();
+
 function cartItemTemplate(item) {
   console.log("Procesando item:", item);
   
